@@ -93,58 +93,67 @@ label{
         let length = inputLength.value
         const unit = inputUnit.value
         const unit2 = inputUnit2.value
+        let newlength = 0;
 
         if(unit === "Miles"){
-            if(unit2 === "Inches")
-            length = length/5280*12
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Inches"){
+              newlength = length *5280 * 12
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+          }
         }
         if(unit === "Miles"){
-            if(unit2 === "Feet")
-            length = length/5280
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Feet"){
+
+              newlength = length * 5280
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+          }
         }
         if(unit === "Miles"){
-            if(unit2 === "Miles")
-            length = length
-            display.innerHTML = length.toFixed(2)
+            if(unit2 === "Miles"){
+              newlength = length
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+          }
         }
 
 
         if(unit === "Feet"){
-            if(unit2 === "Inches")
-            length = length* 12
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Inches"){
+              newlength = length* 12
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+            }
         }
         if(unit === "Feet"){
-            if(unit2 === "Feet")
-            length = length
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Feet"){
+              newlength = length
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+            }
         }
         if(unit === "Feet"){
-            if(unit2 === "Miles")
-            length = length*5280
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Miles"){
+              newlength = length/5280
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+            }
         }
 
 
         if(unit === "Inches"){
-            if(unit2 === "Inches")
-            length = length
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Inches"){
+              newlength = length
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+            }
         }
         if(unit === "Inches"){
-            if(unit2 === "Feet")
-            length = length/12
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Feet"){
+              newlength = length/12
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+            }
         }
         if(unit === "Inches"){
-            if(unit2 === "Miles")
-            length = length/5280*12
-            display.innerHTML = length.toFixed(4)
+            if(unit2 === "Miles"){
+              newlength = (length/12)/5280
+              display.innerHTML = parseFloat(newlength).toFixed(4)
+            }
         }
-    
-        
     }
 
     inputUnit.addEventListener('input', conversion)
