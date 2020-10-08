@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+    <title>
+        Area Calculator
+    </title>
+<style>
+body{
+    font: 20px;
+    font-family: arial;
+    margin: 0;
+    background-color: rgb(255, 96, 96);
+}
+
+h1{
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    font-size: 4em;
+	color: #fff;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+
+}
+textarea {
+	height: 7em;
+	margin: 0 0 0 0;
+}
+input, textarea {
+	padding: 0.5em;
+	margin: 0 auto 0 auto;
+	width: 10em;
+	font-size: 1em;
+}
+label{
+    font-size: 30px;
+}
+
+</style>
+</head>
+<body>
+    <main>
+        <h1>Conversion Calculator</h1>
+    
+
+
+    <form>
+        <label>Select Unit</label>
+        <select id="input-unit">
+            <option>Miles</option>
+            <option>Feet</option>
+            <option>Inches</option>
+        </select>
+        <label> Length </label>
+        <input id="input-length" type="number">
+
+        <label>Conversion to</label>
+        <select id="input-unit2">
+            <option>Miles</option>
+            <option>Feet</option>
+            <option>Inches</option>
+        </select>
+
+    
+    </form>
+
+    <h2 id="display">
+        Length
+    </h2>
+
+    </main>
+</body>
+
+<script>
+    const inputUnit =document.querySelector('#input-unit')
+    const inputLength=document.querySelector('#input-length')
+    const inputUnit2 =document.querySelector('#input-unit2')
+    const display =document.querySelector('#display')
+
+    function conversion(){
+        let length = inputLength.value
+        const unit = inputUnit.value
+        const unit2 = inputUnit2.value
+
+        if(unit === "Miles"){
+            if(unit2 === "Inches")
+            length = length/5280*12
+            display.innerHTML = length.toFixed(4)
+        }
+        if(unit === "Miles"){
+            if(unit2 === "Feet")
+            length = length/5280
+            display.innerHTML = length.toFixed(4)
+        }
+        if(unit === "Miles"){
+            if(unit2 === "Miles")
+            length = length
+            display.innerHTML = length.toFixed(2)
+        }
+
+
+        if(unit === "Feet"){
+            if(unit2 === "Inches")
+            length = length* 12
+            display.innerHTML = length.toFixed(4)
+        }
+        if(unit === "Feet"){
+            if(unit2 === "Feet")
+            length = length
+            display.innerHTML = length.toFixed(4)
+        }
+        if(unit === "Feet"){
+            if(unit2 === "Miles")
+            length = length*5280
+            display.innerHTML = length.toFixed(4)
+        }
+
+
+        if(unit === "Inches"){
+            if(unit2 === "Inches")
+            length = length
+            display.innerHTML = length.toFixed(4)
+        }
+        if(unit === "Inches"){
+            if(unit2 === "Feet")
+            length = length/12
+            display.innerHTML = length.toFixed(4)
+        }
+        if(unit === "Inches"){
+            if(unit2 === "Miles")
+            length = length/5280*12
+            display.innerHTML = length.toFixed(4)
+        }
+    
+        
+    }
+
+    inputUnit.addEventListener('input', conversion)
+    inputLength.addEventListener('input', conversion)
+    inputUnit2.addEventListener('input', conversion)
+
+</script>
+</html>
